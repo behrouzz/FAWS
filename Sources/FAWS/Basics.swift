@@ -29,8 +29,8 @@ let adsTDB0 = -6.55e-5
 let adsSRS = 1.97412574336e-8
 let adsDint = { $0 < 0.0 ? ceil($0) : floor($0) }
 let adsDnint = { abs($0) < 0.5 ? 0.0 : ( $0 < 0.0 ? ceil(($0) - 0.5) : floor($0 + 0.5 )) }
-let adsDsign = { (a: Double, b: Double) -> Double in 
-	b < 0.0 ? -1.0 * abs(a) : abs(a)
+let adsDsign = { (a: Double, b: Double) -> Double in
+    b < 0.0 ? -1.0 * abs(a) : abs(a)
 }
 let adsGmax = { (a: Double, b: Double) -> Double in a > b ? a : b }
 let adsGmin = { (a: Double, b: Double) -> Double in a < b ? a : b }
@@ -41,6 +41,8 @@ let adsWGS72 = 3
 
 /* Star-independent astrometry parameters (Vectors eb, eh, em and v are all with respect to BCRS axes.) */
 public struct ASTROM {
+    public init() {}
+    
     var pmt: Double = 0.0              // PM time interval (SSB, Julian years)
     var eb: [Double] = [0.0, 0.0, 0.0] // SSB to observer (vector, au)
     var eh: [Double] = [0.0, 0.0, 0.0] // Sun to observer (unit vector)
@@ -63,9 +65,11 @@ public struct ASTROM {
 
 /* Body parameters for light deflection */
 public struct LDBODY {
-   var bm: Double      // mass of the body (solar masses)
-   var dl: Double      // deflection limiter (radians^2/2)
-   var pv: [[Double]]  // barycentric PV of the body (au, au/day) //[2][3]
+    public init() {}
+    
+    var bm: Double = 0.0       // mass of the body (solar masses)
+    var dl: Double = 0.0       // deflection limiter (radians^2/2)
+    var pv: [[Double]] = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]] // barycentric PV of the body (au, au/day) //[2][3]
 }
 
 
@@ -74,7 +78,7 @@ public struct LDBODY {
 
 // Mean elongation of the Moon from the Sun
 func adsFad03(_ t: Double) -> Double {
-	fmod(1072260.703692 + t * (1602961601.2090 + t * (-6.3706 + t * (0.006593 + t * (-0.00003169)))), adsTURNAS) * adsDAS2R
+    fmod(1072260.703692 + t * (1602961601.2090 + t * (-6.3706 + t * (0.006593 + t * (-0.00003169)))), adsTURNAS) * adsDAS2R
 }
 
 // Mean longitude of Earth
@@ -94,12 +98,12 @@ func adsFaju03(_ t: Double) -> Double {
 
 // Mean anomaly of the Moon
 func adsFal03(_ t: Double) -> Double {
-	fmod(485868.249036 + t * (1717915923.2178 + t * (31.8792 + t * (0.051635 + t * (-0.00024470)))), adsTURNAS) * adsDAS2R
+    fmod(485868.249036 + t * (1717915923.2178 + t * (31.8792 + t * (0.051635 + t * (-0.00024470)))), adsTURNAS) * adsDAS2R
 }
 
 // Mean anomaly of the Sun
 func adsFalp03(_ t: Double) -> Double {
-	fmod(1287104.793048 + t * (129596581.0481 + t * (-0.5532 + t * (0.000136 + t * (-0.00001149 )))), adsTURNAS) * adsDAS2R
+    fmod(1287104.793048 + t * (129596581.0481 + t * (-0.5532 + t * (0.000136 + t * (-0.00001149 )))), adsTURNAS) * adsDAS2R
 }
 
 // Mean longitude of Mars
@@ -114,7 +118,7 @@ func adsFame03(_ t: Double) -> Double {
 
 // Mean longitude of Neptune
 func adsFane03(_ t: Double) -> Double {
-	fmod(5.311886287 + 3.8133035638 * t, adsD2PI)
+    fmod(5.311886287 + 3.8133035638 * t, adsD2PI)
 }
 
 // Mean longitude of the Moon's ascending node
