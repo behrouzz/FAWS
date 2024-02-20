@@ -43,23 +43,23 @@ let adsWGS72 = 3
 public struct ASTROM {
     public init() {}
     
-    var pmt: Double = 0.0              // PM time interval (SSB, Julian years)
-    var eb: [Double] = [0.0, 0.0, 0.0] // SSB to observer (vector, au)
-    var eh: [Double] = [0.0, 0.0, 0.0] // Sun to observer (unit vector)
-    var em: Double = 0.0               // distance from Sun to observer (au)
-    var v: [Double] = [0.0, 0.0, 0.0]  // barycentric observer velocity (vector, c)
-    var bm1: Double = 0.0              // sqrt(1-|v|^2): reciprocal of Lorenz factor
-    var bpn: [[Double]] = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]] // bias-precession-nutation matrix
-    var along: Double = 0.0            // longitude + s' + dERA(DUT) (radians)
-    var phi: Double = 0.0              // geodetic latitude (radians)
-    var xpl: Double = 0.0              // polar motion xp wrt local meridian (radians)
-    var ypl: Double = 0.0              // polar motion yp wrt local meridian (radians)
-    var sphi: Double = 0.0             // sine of geodetic latitude
-    var cphi: Double = 0.0             // cosine of geodetic latitude
-    var diurab: Double = 0.0           // magnitude of diurnal aberration vector
-    var eral: Double = 0.0             // "local" Earth rotation angle (radians)
-    var refa: Double = 0.0             // refraction constant A (radians)
-    var refb: Double = 0.0             // refraction constant B (radians)
+    public var pmt: Double = 0.0              // PM time interval (SSB, Julian years)
+    public var eb: [Double] = [0.0, 0.0, 0.0] // SSB to observer (vector, au)
+    public var eh: [Double] = [0.0, 0.0, 0.0] // Sun to observer (unit vector)
+    public var em: Double = 0.0               // distance from Sun to observer (au)
+    public var v: [Double] = [0.0, 0.0, 0.0]  // barycentric observer velocity (vector, c)
+    public var bm1: Double = 0.0              // sqrt(1-|v|^2): reciprocal of Lorenz factor
+    public var bpn: [[Double]] = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]] // bias-precession-nutation matrix
+    public var along: Double = 0.0            // longitude + s' + dERA(DUT) (radians)
+    public var phi: Double = 0.0              // geodetic latitude (radians)
+    public var xpl: Double = 0.0              // polar motion xp wrt local meridian (radians)
+    public var ypl: Double = 0.0              // polar motion yp wrt local meridian (radians)
+    public var sphi: Double = 0.0             // sine of geodetic latitude
+    public var cphi: Double = 0.0             // cosine of geodetic latitude
+    public var diurab: Double = 0.0           // magnitude of diurnal aberration vector
+    public var eral: Double = 0.0             // "local" Earth rotation angle (radians)
+    public var refa: Double = 0.0             // refraction constant A (radians)
+    public var refb: Double = 0.0             // refraction constant B (radians)
 }
 
 
@@ -67,9 +67,9 @@ public struct ASTROM {
 public struct LDBODY {
     public init() {}
     
-    var bm: Double = 0.0       // mass of the body (solar masses)
-    var dl: Double = 0.0       // deflection limiter (radians^2/2)
-    var pv: [[Double]] = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]] // barycentric PV of the body (au, au/day) //[2][3]
+    public var bm: Double = 0.0       // mass of the body (solar masses)
+    public var dl: Double = 0.0       // deflection limiter (radians^2/2)
+    public var pv: [[Double]] = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]] // barycentric PV of the body (au, au/day) //[2][3]
 }
 
 
